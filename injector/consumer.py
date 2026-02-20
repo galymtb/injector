@@ -8,7 +8,7 @@ POISON_PILL = "END"
 
 
 class Consumer(Thread):
-    def __init__(self, buffer: Queue, book: Book):
+    def __init__(self, buffer: Queue, book: Book) -> None:
         super().__init__(daemon=True)
         self._buffer: Queue = buffer
         self._book: Book = book

@@ -3,36 +3,28 @@ from type import Type
 
 
 class Order:
-    _timestamp: str
-    _id: str
-    _symbol: str
-    _side: Side
-    _type: Type
-    _price: float
-    _quantity: int
-
     def __init__(
         self,
         timestamp: str,
-        order_id: str,
-        order_symbol: str,
-        order_side: str,
-        order_type: str,
-        order_price: str,
-        order_quantity: str,
-    ):
-        self._timestamp = timestamp
-        self._id = order_id
-        self._symbol = order_symbol
+        id: str,
+        symbol: str,
+        side: str,
+        type: str,
+        price: str,
+        quantity: str,
+    ) -> None:
+        self._timestamp: str = timestamp
+        self._id: str = id
+        self._symbol: str = symbol
 
         try:
-            self._side = Side(order_side)
-            self._type = Type(order_type)
+            self._side: Side = Side(side)
+            self._type: Type = Type(type)
         except Exception:
             pass
 
-        self._price = float(order_price)
-        self._quantity = int(order_quantity)
+        self._price: float = float(price)
+        self._quantity: int = int(quantity)
 
     def __repr__(self) -> str:
         return (
